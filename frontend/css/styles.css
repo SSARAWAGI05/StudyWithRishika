@@ -646,10 +646,10 @@ nav.scrolled {
 }
 
 
-/* Adjusted .coursesop styles for smooth load */
+/* Adjusted .coursesop styles for smooth load
 .coursesop {
     opacity: 0;
-    transition: opacity 0.1s ease-in; /* Adjusted transition duration for smoothness */
+    transition: opacity 0.1s ease-in; /* Adjusted transition duration for smoothness 
 }
 
 .coursesop.visible {
@@ -659,9 +659,24 @@ nav.scrolled {
 
 .liveclassop {
     opacity: 0;
-    transition: opacity 0.1s ease-in; /* Adjusted transition duration for smoothness */
+    transition: opacity 0.1s ease-in;  Adjusted transition duration for smoothness 
 }
 
 .liveclassop.visible {
     opacity: 1;
+} */
+
+.coursesop,
+.liveclassop {
+    opacity: 0;
+    transform: scale(0.95); /* Start slightly smaller for a subtle zoom effect */
+    filter: blur(8px); /* Start with a blur */
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out, filter 0.6s ease-in-out; /* Slightly longer for smoother effect */
+}
+
+.coursesop.visible,
+.liveclassop.visible {
+    opacity: 1;
+    transform: scale(1); /* Zooms to full size */
+    filter: blur(0); /* Clears the blur effect */
 }
