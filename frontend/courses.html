@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Study With Rishika!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="fixed-nav">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="assets/LOGO/RS.png" alt="Study With Rishika Logo" class="logo-image">
+                <span class="fade-in">Study With Rishika!</span>
+            </a>
+        </div>
+        <ul class="nav-links fade-in">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="live-class.html">Live Class</a></li>
+            <li><a href="#" id="signInButton">Sign In</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-content">
+        <!-- Courses Section -->
+        <section id="courses-page" class="courses-section">
+            <h1 class="fade-in">Our Courses</h1>
+            <div class="courses-grid">
+                <div class="course-card fade-in">
+                    <img src="/api/placeholder/400/200" alt="Accounts Course" class="course-image">
+                    <div class="course-content">
+                        <h3>Accounts</h3>
+                        <p>Learn Accountancy with Rishika and ace your exams. Our comprehensive course covers:</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Basic accounting principles</li>
+                            <li><i class="fas fa-check"></i> Financial statements</li>
+                            <li><i class="fas fa-check"></i> Advanced bookkeeping</li>
+                            <li><i class="fas fa-check"></i> Practice sessions</li>
+                        </ul>
+                        <div class="course-footer">
+                            <span class="course-price">₹4999</span>
+                            <a href="course-details.html?course=accounts" class="button pulse">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card fade-in">
+                    <img src="/api/placeholder/400/200" alt="Microsoft Office Course" class="course-image">
+                    <div class="course-content">
+                        <h3>Microsoft Office</h3>
+                        <p>Master MS Office and various new techniques. Course includes:</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Word processing</li>
+                            <li><i class="fas fa-check"></i> Excel spreadsheets</li>
+                            <li><i class="fas fa-check"></i> PowerPoint presentations</li>
+                            <li><i class="fas fa-check"></i> Advanced features</li>
+                        </ul>
+                        <div class="course-footer">
+                            <span class="course-price">₹3999</span>
+                            <a href="course-details.html?course=ms-office" class="button pulse">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card fade-in">
+                    <img src="/api/placeholder/400/200" alt="Digital Marketing Course" class="course-image">
+                    <div class="course-content">
+                        <h3>Digital Marketing</h3>
+                        <p>Develop skills in SEO, social media, and content marketing:</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> SEO fundamentals</li>
+                            <li><i class="fas fa-check"></i> Social media marketing</li>
+                            <li><i class="fas fa-check"></i> Content strategy</li>
+                            <li><i class="fas fa-check"></i> Analytics & reporting</li>
+                        </ul>
+                        <div class="course-footer">
+                            <span class="course-price">₹5999</span>
+                            <a href="course-details.html?course=digital-marketing" class="button pulse">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sign In Modal -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content fade-in">
+            <span class="close">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signinForm">
+                <div class="form-group">
+                    <label for="signinEmail">Email</label>
+                    <input type="email" id="signinEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signinPassword">Password</label>
+                    <input type="password" id="signinPassword" required>
+                </div>
+                <button type="submit" class="button">Sign In</button>
+                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content fade-in">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Name</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <button type="submit" class="button">Register</button>
+                <p>Already have an account? <a href="#" id="showSignin">Sign In</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/animations.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
