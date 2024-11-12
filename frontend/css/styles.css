@@ -478,6 +478,114 @@ nav.scrolled {
     transition: width 0.3s ease;
 }
 
+/* Live Class Section Styling */
+.live-class-section {
+    padding: 4rem 5%;
+    background-color: #f0f4f8;
+    text-align: center;
+}
+
+.live-class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 3rem;
+}
+
+/* Button Base Style */
+.live-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: #3498db;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Unique Colors for Buttons */
+.live-button.join {
+    background-color: #e74c3c;
+}
+
+.live-button.notes {
+    background-color: #2ecc71;
+}
+
+.live-button.recorded {
+    background-color: #8e44ad;
+}
+
+.live-button.query {
+    background-color: #f39c12;
+}
+
+/* Hover Effect */
+.live-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Inner Gradient Shine Effect */
+.live-button::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.live-button:hover::before {
+    top: 0;
+    left: 0;
+}
+
+/* Ripple Effect on Click */
+.live-button:active::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s ease-out forwards;
+}
+
+@keyframes ripple {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Make Buttons Responsive */
+@media (max-width: 768px) {
+    .live-button {
+        width: 150px;
+        height: 150px;
+        font-size: 1rem;
+    }
+}
+
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
