@@ -480,7 +480,7 @@ nav.scrolled {
 
 /* Live Class Section Styling */
 .live-class-section {
-    padding: 4rem 5%;
+    padding: 10rem 5%;
     background-color: #f0f4f8;
     text-align: center;
 }
@@ -566,6 +566,26 @@ nav.scrolled {
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     animation: ripple 0.6s ease-out forwards;
+}
+
+.logo-container {
+    margin-top: 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style for the image */
+.centered-logo {
+    max-width: 150px;  /* Adjust this size as necessary */
+    height: auto;
+    opacity: 0.8; /* Optional: slightly transparent */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect to bring focus to the logo */
+.centered-logo:hover {
+    opacity: 1;
+    transform: scale(1.1);  /* Slight zoom effect */
 }
 
 @keyframes ripple {
