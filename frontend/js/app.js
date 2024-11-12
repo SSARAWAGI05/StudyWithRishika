@@ -10,31 +10,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal toggle functions
     registerLink.addEventListener('click', (e) => {
         e.preventDefault();
-        signinModal.style.display = 'none';
-        registerModal.style.display = 'flex';
+        signinModal.classList.remove('active');
+        registerModal.classList.add('active');
     });
-
+    
     loginLink.addEventListener('click', (e) => {
         e.preventDefault();
-        registerModal.style.display = 'none';
-        signinModal.style.display = 'flex';
+        registerModal.classList.remove('active');
+        signinModal.classList.add('active');
     });
-
-    // Close buttons
+    
+    // Close button logic remains the same, except add/remove 'active' class
     document.querySelectorAll('.close-button').forEach(button => {
         button.addEventListener('click', () => {
-            registerModal.style.display = 'none';
-            signinModal.style.display = 'none';
+            registerModal.classList.remove('active');
+            signinModal.classList.remove('active');
         });
     });
-
-    // Click outside to close
+    
+    // Click outside to close modals
     window.addEventListener('click', (e) => {
         if (e.target === registerModal || e.target === signinModal) {
-            registerModal.style.display = 'none';
-            signinModal.style.display = 'none';
+            registerModal.classList.remove('active');
+            signinModal.classList.remove('active');
         }
     });
+    
 
     // Registration handler
     registerForm.addEventListener('submit', async (e) => {
