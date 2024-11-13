@@ -22,16 +22,48 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="courses.html">Courses</a></li>
             <li><a href="live-class.html">Live Class</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="#signin-modal" id="loginLink">Sign In</a></li>
         </ul>
     </nav>
 
     <!-- Home Section -->
-    <section id="home">
-        <h1 class="fade-in">Welcome to Study With Rishika!</h1>
-        <p class="fade-in">Unlock your potential with Rishika—ace your exams and access quality education through live interactive sessions!</p>
-        <a href="courses.html" class="button fade-in pulse">Explore Courses</a>
+    <section id="home" class="home-slideshow">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <img src="assets/" alt="Hero Image 1" class="slide-image">
+            <div class="slide-content">
+                <h1 class="fade-in">Welcome to Study With Rishika!</h1>
+                <p class="fade-in">Unlock your potential with Rishika—ace your exams and access quality education through live interactive sessions!</p>
+                <a href="courses.html" class="button fade-in pulse">Explore Courses</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <img src="assets/hero-image-2.jpg" alt="Hero Image 2" class="slide-image">
+            <div class="slide-content">
+                <h1 class="fade-in">Live Interactive Classes</h1>
+                <p class="fade-in">Join our live classes and get personalized attention from expert instructors.</p>
+                <a href="live-class.html" class="button fade-in pulse">Join Live Class</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <img src="assets/hero-image-3.jpg" alt="Hero Image 3" class="slide-image">
+            <div class="slide-content">
+                <h1 class="fade-in">Get in Touch</h1>
+                <p class="fade-in">Have questions or need assistance? Contact us for more information.</p>
+                <a href="#contact" class="button fade-in pulse">Contact Us</a>
+            </div>
+        </div>
+
+        <!-- Slideshow Controls -->
+        <div class="slideshow-controls">
+            <button class="prev-slide">&lt;</button>
+            <button class="next-slide">&gt;</button>
+        </div>
     </section>
 
     <!-- Sign In Modal -->
@@ -80,56 +112,43 @@
         </div>
     </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="fade-in contact-heading">Contact Us</h2>
-        <div class="contact-container">
-            <div class="contact-info fade-in">
-                <h3>Get in Touch</h3>
-                <div class="contact-info-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:sarawagirishika748@gmail.com">sarawagirishika748@gmail.com</a>
-                </div>
-                <div class="contact-info-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/rishika-sarawagi-a3ba2119b/" target="_blank">LinkedIn Profile</a>
-                </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>+91 9903996663</span>
-                </div>
-                <div class="contact-info-item">
-                    <i class="fab fa-instagram"></i>
-                    <a href="https://www.instagram.com/rishikasarawagi?igsh=N3pxazVxeDNzN2Fk" target="_blank">Instagram</a>
-                </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Educational Hub, Digital Avenue</span>
-                </div>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Study With Rishika is an online learning platform dedicated to helping students succeed.</p>
             </div>
-            <div class="contact-form fade-in">
-                <h3>Send us a Message</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="button pulse">Send Message</button>
-                </form>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="live-class.html">Live Class</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/rishika-sarawagi-a3ba2119b/" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/rishikasarawagi?igsh=N3pxazVxeDNzN2Fk" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: sarawagirishika748@gmail.com</p>
+                <p>Phone: +91 9903996663</p>
             </div>
         </div>
-    </section>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Study With Rishika. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="js/animations.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/slideshow.js"></script>
 </body>
 </html>

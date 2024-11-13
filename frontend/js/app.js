@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    
     // UI update function
     function updateUIForLoggedInUser(username) {
         const signinLink = document.querySelector('a[href="#signin"]');
