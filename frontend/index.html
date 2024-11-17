@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study With Rishika! - Learn & Grow</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <!-- Existing stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+
+    <!-- Welcome Splash Container -->
+    <div id="welcome-splash"></div>
+
     <!-- Navigation Bar -->
     <nav>
         <div class="nav-logo">
@@ -144,6 +152,73 @@
             <p>&copy; 2024 Study With Rishika. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Add this just before closing body tag, after your other scripts -->
+    <script type="module">
+        // Welcome Splash Component
+        const WelcomeSplash = () => {
+            const [isVisible, setIsVisible] = React.useState(true);
+            const [hasAnimationCompleted, setHasAnimationCompleted] = React.useState(false);
+
+            React.useEffect(() => {
+                const hasSeenSplash = localStorage.getItem('hasSeenWelcome');
+                
+                if (hasSeenSplash) {
+                    setIsVisible(false);
+                } else {
+                    const timer = setTimeout(() => {
+                        closeSplash();
+                    }, 3500);
+                    
+                    return () => clearTimeout(timer);
+                }
+            }, []);
+
+            const closeSplash = () => {
+                setHasAnimationCompleted(true);
+                setTimeout(() => {
+                    setIsVisible(false);
+                    localStorage.setItem('hasSeenWelcome', 'true');
+                }, 500);
+            };
+
+            if (!isVisible) return null;
+
+            return React.createElement('div', {
+                className: `fixed inset-0 z-[1100] bg-[#1A202C] flex items-center justify-center 
+                    ${hasAnimationCompleted ? 'animate-fadeOut' : 'animate-fadeIn'}`
+            }, 
+                React.createElement('div', {
+                    className: `text-center ${hasAnimationCompleted ? 'animate-slideOut' : 'animate-slideIn'}`
+                }, [
+                    React.createElement('img', {
+                        src: "assets/LOGO/BACK.png",
+                        alt: "Study With Rishika Logo",
+                        className: "w-32 h-32 mx-auto mb-6 animate-float",
+                        key: "logo"
+                    }),
+                    React.createElement('h1', {
+                        className: "text-4xl font-bold mb-4 text-white",
+                        key: "title"
+                    }, "Welcome to Study With Rishika!"),
+                    React.createElement('p', {
+                        className: "text-lg text-gray-300 mb-8",
+                        key: "subtitle"
+                    }, "Your journey to academic excellence begins here"),
+                    React.createElement('button', {
+                        onClick: closeSplash,
+                        className: "px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-all duration-300 ease-in-out transform hover:scale-105",
+                        key: "button"
+                    }, "Get Started")
+                ])
+            );
+        };
+
+        // Initialize the Welcome Splash
+        const container = document.getElementById('welcome-splash');
+        const root = ReactDOM.createRoot(container);
+        root.render(React.createElement(WelcomeSplash));
+    </script>
 
     <script src="js/animations.js"></script>
     <script src="js/app.js"></script>
