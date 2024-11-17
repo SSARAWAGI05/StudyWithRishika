@@ -163,25 +163,37 @@
     <!-- Add this just before closing body tag, after your other scripts -->
     <script type="module">
         const WelcomeSplash = () => {
-            const [isVisible, setIsVisible] = React.useState(true);
+            const [isVisible, setIsVisible] = React.useState(false);  // Changed initial state to false
             const [hasAnimationCompleted, setHasAnimationCompleted] = React.useState(false);
-    
+            
             React.useEffect(() => {
-                const timer = setTimeout(() => {
-                    closeSplash();
-                }, 3500);
-                return () => clearTimeout(timer);
+                // Check if user has seen the splash before
+                const hasSeenSplash = localStorage.getItem('hasSeenWelcomeSplash');
+                
+                if (!hasSeenSplash) {
+                    // If they haven't seen it, show the splash and set the flag
+                    setIsVisible(true);
+                    localStorage.setItem('hasSeenWelcomeSplash', 'true');
+                    
+                    // Auto-close after 3.5 seconds
+                    const timer = setTimeout(() => {
+                        closeSplash();
+                    }, 3500);
+                    
+                    return () => clearTimeout(timer);
+                }
             }, []);
-    
+            
             const closeSplash = () => {
                 setHasAnimationCompleted(true);
                 setTimeout(() => {
                     setIsVisible(false);
                 }, 500);
             };
-    
+            
             if (!isVisible) return null;
-    
+
+            // Rest of your existing return statement with JSX/createElement remains the same
             return React.createElement('div', {
                 className: `fixed inset-0 z-50 flex items-center justify-center bg-black/95
                     ${hasAnimationCompleted ? 'animate-fadeOut' : 'animate-fadeIn'}
@@ -242,6 +254,7 @@
         const root = ReactDOM.createRoot(container);
         root.render(React.createElement(WelcomeSplash));
     </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.querySelector('.mobile-menu-button');
