@@ -20,18 +20,19 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <button class="mobile-menu-button" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
         <div class="nav-logo">
             <a href="index.html">
                 <img src="assets/LOGO/BACK.png" alt="Study With Rishika Logo" class="logo-image">
                 <span class="fade-in">Study With Rishika!</span>
             </a>
         </div>
+
+        <button class="mobile-menu-button" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
         <ul class="nav-links fade-in">
             <li><a href="index.html">Home</a></li>
             <li><a href="courses.html">Courses</a></li>
@@ -242,28 +243,35 @@
         root.render(React.createElement(WelcomeSplash));
     </script>
     <script>
-        // Wait for the DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu functionality
-            document.querySelector('.mobile-menu-button').addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.toggle('active');
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav-links');
+        
+            // Toggle menu
+            mobileMenuButton.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent event from bubbling up
+                mobileMenuButton.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                console.log('Menu button clicked'); // Debug line
             });
-    
+        
             // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.nav-links') && !e.target.closest('.mobile-menu-button')) {
-                    document.querySelector('.nav-links').classList.remove('active');
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    mobileMenuButton.classList.remove('active');
+                    navLinks.classList.remove('active');
                 }
             });
-    
-            // Close menu when clicking on a nav link
+        
+            // Close menu when clicking on a link
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
-                    document.querySelector('.nav-links').classList.remove('active');
+                    mobileMenuButton.classList.remove('active');
+                    navLinks.classList.remove('active');
                 });
             });
         });
-    </script>
+        </script>
 
     <script src="js/animations.js"></script>
     <script src="js/app.js"></script>
