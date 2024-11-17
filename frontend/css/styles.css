@@ -852,6 +852,50 @@ nav.scrolled {
     transition: width 0.3s ease;
 }
 
+/* Mobile Menu Button Styles */
+.mobile-menu-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.mobile-menu-button span {
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+/* Show mobile menu button only on mobile devices */
+@media (max-width: 767px) {
+    .mobile-menu-button {
+        display: flex;
+    }
+
+    /* Animation for menu button when active */
+    .mobile-menu-button.active span:first-child {
+        transform: rotate(45deg);
+    }
+
+    .mobile-menu-button.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-button.active span:last-child {
+        transform: rotate(-45deg);
+    }
+}
+
 /* Logo Styles */
 .logo-container {
     margin-top: 8rem;
@@ -913,50 +957,240 @@ nav.scrolled {
     }
 }
 
-/* 13. Media Queries */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
+/* 13. Media Queries - Enhanced Responsive Design */
+/* Extra large devices (large desktops) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+    
+    .hero-content {
+        padding: 120px 40px;
+    }
+}
+
+/* Large devices (desktops) */
+@media (max-width: 1199px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-image {
+        margin-right: -150px;
+    }
+    
+    .courses-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 991px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 20px;
+    }
+    
+    .hero-image {
+        margin-right: 0;
+        order: -1;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+    }
+    
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .contact-container {
         flex-direction: column;
+        gap: 2rem;
     }
     
-    .live-button {
-        width: 150px;
-        height: 150px;
-        font-size: 1rem;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-column {
-        margin-right: 0;
-        margin-bottom: 2rem;
-        text-align: center;
-    }
-
-    .main-content {
-        padding-top: 70px;
-    }
-
-    nav {
-        height: 70px;
+    .live-class-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+/* Small devices (landscape phones) */
+@media (max-width: 767px) {
+    nav {
+        padding: 1rem;
+    }
+    
+    .nav-logo a {
+        font-size: 1.5rem;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+    
+    /* Mobile Navigation */
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #1A202C;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .course-card {
+        margin: 0 1rem;
+    }
+    
+    .live-class-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 90%;
+        margin: 0 1rem;
+    }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 575px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .feature-card {
+        padding: 15px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .contact-form,
+    .contact-info {
+        padding: 1rem;
+    }
+    
+    .footer-column {
+        flex: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Responsive Font Sizes */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .course-card h3 {
+        font-size: 1.25rem !important;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .nav-links a:hover::after {
+        transform: none;
+    }
+    
+    .button:hover {
+        transform: none;
+    }
+    
+    .course-card:hover {
+        transform: none;
+    }
+    
+    .live-button:hover {
+        transform: none;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 150vh;
+    }
+    
+    .nav-links {
+        height: auto;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+/* High Resolution Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-image,
+    .course-image {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Print Styles */
+@media print {
+    nav,
+    .hero-section,
+    .live-class-section,
+    #footer {
+        display: none;
+    }
+    
+    .course-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* Foldable Device Support */
+@media (max-width: 280px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .nav-logo a {
+        font-size: 1.25rem;
     }
 }
 

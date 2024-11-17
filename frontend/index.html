@@ -20,6 +20,12 @@
 
     <!-- Navigation Bar -->
     <nav>
+        <button class="mobile-menu-button" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
         <div class="nav-logo">
             <a href="index.html">
                 <img src="assets/LOGO/BACK.png" alt="Study With Rishika Logo" class="logo-image">
@@ -235,7 +241,29 @@
         const root = ReactDOM.createRoot(container);
         root.render(React.createElement(WelcomeSplash));
     </script>
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            document.querySelector('.mobile-menu-button').addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
     
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-links') && !e.target.closest('.mobile-menu-button')) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+    
+            // Close menu when clicking on a nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.querySelector('.nav-links').classList.remove('active');
+                });
+            });
+        });
+    </script>
 
     <script src="js/animations.js"></script>
     <script src="js/app.js"></script>
