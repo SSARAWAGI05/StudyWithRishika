@@ -512,6 +512,7 @@ nav.scrolled {
     padding: 10rem 5%;
     background-color: #f0f4f8;
     text-align: center;
+    font-size: 2.0rem;
 }
 
 .live-class-grid {
@@ -601,6 +602,7 @@ nav.scrolled {
     text-align: center;
     font-size: 2.5rem;
     color: #333;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     font-weight: bold;
 }
