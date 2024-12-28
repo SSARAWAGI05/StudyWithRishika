@@ -82,6 +82,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+        // Add this to your app.js or create a new modal.js file
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get modal elements
+        const signinModal = document.getElementById('signin-modal');
+        const registerModal = document.getElementById('register-modal');
+        const loginLink = document.getElementById('loginLink');
+        const closeButtons = document.querySelectorAll('.close-button, .close');
+        
+        // Show signin modal
+        loginLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            signinModal.style.display = 'flex';  // Using flex instead of block for better centering
+        });
+        
+        // Close modals when clicking the close button
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                signinModal.style.display = 'none';
+                registerModal.style.display = 'none';
+            });
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === signinModal) {
+                signinModal.style.display = 'none';
+            }
+            if (e.target === registerModal) {
+                registerModal.style.display = 'none';
+            }
+        });
+        
+        // Switch between signin and register modals
+        document.getElementById('showSignin').addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.style.display = 'none';
+            signinModal.style.display = 'flex';
+        });
+    });
+
     
     // UI update function
     function updateUIForLoggedInUser(username) {

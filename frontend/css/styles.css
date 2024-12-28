@@ -878,6 +878,61 @@ nav.scrolled {
     transform-origin: 1px;
 }
 
+/* Add this to your styles.css file */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.close-button, .close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-button:hover, .close:hover {
+    color: #000;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style the Google Sign-In button container */
+.g_id_signin {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
 /* Show mobile menu button only on mobile devices */
 @media (max-width: 767px) {
     .mobile-menu-button {
